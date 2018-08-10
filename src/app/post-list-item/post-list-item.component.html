@@ -6,7 +6,9 @@
   <p>{{ post.content }}</p>
   <button type="button" name="loveIf" class="btn btn-success" (click)="onLoveIt(post)">Love It! <span *ngIf="post.loveIt >0" class="badge">{{ post.loveIt }}</span> </button>
   &nbsp;
-  <button type="button" name="onDoNotLoveIt" class="btn btn-danger" (click)="onDoNotLoveIt(post)">Don't Love It! <span *ngIf="post.loveIt <0"  class="badge">{{ post.loveIt }}</span> </button>
-
+  <button type="button" name="onDoNotLoveIt" class="btn btn-danger" (click)="onDoNotLoveIt(post)">Don't Love It!
+    <span *ngIf="post.loveIt <0"  class="badge">{{ post.loveIt }}</span> </button>
+  <button type="button" name="onDelete" class="btn btn-danger pull-right" (click)="onDelete(post)">
+    Supprimer post </button>
 </li>
 

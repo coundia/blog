@@ -1,11 +1,5 @@
 import { Component } from '@angular/core';
-// type post
-export class Post {
-  public created_at: Date;
-  constructor(public title: string, public content: string, public loveIt: number) {
-    this.created_at = new Date();
-  }
-}
+import * as firebase from 'firebase';
 // decorateur
 @Component({
   selector: 'app-root',
@@ -14,16 +8,16 @@ export class Post {
 })
 
 export class AppComponent {
-  // array posts
-  public posts: Array<Post> = [
-    new Post('mon premier post',' lorem dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff' +
-      'lorem dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff' +
-      'lorem dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff', 1),
-    new Post('mon deuxieme post','  dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff' +
-      'dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff' +
-      'dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff', 0),
-    new Post('encore un post',' ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff' +
-      'ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff' +
-      'ipsum dolor sit amet, consectetur adipiscing elit. Aliquam massa nulla, congue et urna non, eff', -1)
-  ];
+  constructor(){
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBS91ZV8Qrnx1rHXZETlp1vFqiLdgS3ruk",
+      authDomain: "bookshub-4a9a9.firebaseapp.com",
+      databaseURL: "https://bookshub-4a9a9.firebaseio.com",
+      projectId: "bookshub-4a9a9",
+      storageBucket: "bookshub-4a9a9.appspot.com",
+      messagingSenderId: "60286217244"
+    };
+    firebase.initializeApp(config);
+  }
 }
